@@ -102,14 +102,19 @@ endif
 
 " Vim-Clang - this is setting on CentOs 64 bit 
 " --------------------------------------------------------------------
-if isdirectory ("/usr/lib64/llvm")
+if executable ("llvm-ranlib")
     let g:clang_auto_select=1
     let g:clang_complete_auto=0
     let g:clang_complete_copen=1
     let g:clang_snippets=1
     let g:clang_snippets_engine='clang_complete'
     let g:clang_auto_user_options='path, .clang_complete'
-    let g:clang_library_path='/usr/lib64/llvm'
+    if isdirectory ("/usr/lib64/llvm")
+        let g:clang_library_path='/usr/lib64/llvm'
+    endif
+    if isdirectory ("/usr/lib/llvm-3.8")
+        let g:clang_library_path='/usr/lib/llvm-3.8/lib'
+    endif
 else
     " No LLVM - do not load Clang
     let g:clang_complete_loaded=1
