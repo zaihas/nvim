@@ -10,6 +10,6 @@ if [ ! -f "$HOME/.config/nvim/init.vim" ] || [ "$1" == "-f" ] ; then
 fi
 
 # prepare vim plug - later all the plugin will be install using this
-curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+sudo curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

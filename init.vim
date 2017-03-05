@@ -72,6 +72,7 @@ Plug 'aklt/plantuml-syntax'
 " - utils
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-grepper'
 call plug#end()
 
 " Colorscheme (onedark, solarized)
@@ -174,7 +175,7 @@ if has("cscope")
     nmap <C-h><C-h>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <C-h><C-h>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
 
-    " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type
+    " Using CTRL-u *twice* (intepreted as CTRL-@ by vim) then a search type
     " makes the vim window split horizontally, with search result displayed in
     " the new window.
     " (Note: earlier versions of vim may not have the :scs command, but it
@@ -189,7 +190,7 @@ if has("cscope")
     nmap <C-u><C-u>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
     nmap <C-u><C-u>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
 
-    " Hitting CTRL-space *twice* before the search type does a vertical 
+    " Hitting CTRL-n *twice* before the search type does a vertical 
     " split instead of a horizontal one (vim 6 and up only)
     " (Note: you may wish to put a 'set splitright' in your .vimrc
     " if you prefer the new window on the right instead of the left
@@ -202,6 +203,12 @@ if has("cscope")
     nmap <C-n><C-n>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
     nmap <C-n><C-n>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
 endif
+
+" vim-grepper
+" --------------------------------------------------------------------
+nmap <C-u><C-u>c :Grepper -query <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-n><C-n>c :vert Grepper -query <C-R>=expand("<cword>")<CR><CR>
+
 
 " Zaihas custom
 " --------------------------------------------------------------------
