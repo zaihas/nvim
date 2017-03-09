@@ -171,7 +171,7 @@ if has("cscope")
     nmap <C-h><C-h>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
     nmap <C-h><C-h>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
     nmap <C-h><C-h>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
-    nmap <C-h><C-h>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+    nmap <C-h><C-h>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
     nmap <C-h><C-h>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <C-h><C-h>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
 
@@ -221,3 +221,4 @@ set number
 nmap <silent> <F2> :execute 'NERDTreeToggle' . getcwd()<CR>
 nmap <silent> <F4> :execute 'wa!'<CR>
 nmap <silent> <F3> :execute 'q!'<CR>
+map <C-d><C-d> "*
