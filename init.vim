@@ -221,4 +221,4 @@ set number
 nmap <silent> <F2> :execute 'NERDTreeToggle' . getcwd()<CR>
 nmap <silent> <F4> :execute 'wa!'<CR>
 nmap <silent> <F3> :execute 'q!'<CR>
-map <C-d><C-d> "*
+map <C-s><C-s> "*
