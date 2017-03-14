@@ -206,8 +206,7 @@ endif
 
 " vim-grepper
 " --------------------------------------------------------------------
-nmap <C-u><C-u>c :Grepper -query <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-n><C-n>c :vert Grepper -query <C-R>=expand("<cword>")<CR><CR>
+nmap <C-g><C-b> :Grepper -query <C-R>=expand("<cword>")<CR><CR>	
 
 
 " Zaihas custom
