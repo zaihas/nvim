@@ -67,12 +67,13 @@ Plug 'scrooloose/nerdtree'
 " - programming
 Plug 'rip-rip/clang_complete'
 Plug 'ervandew/supertab'
-Plug 'AndrewRadev/simple_bookmarks.vim'
 Plug 'aklt/plantuml-syntax'
 " - utils
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-grepper'
+Plug 'MattesGroeger/vim-bookmarks'
+
 call plug#end()
 
 " Colorscheme (onedark, solarized)
@@ -125,10 +126,13 @@ endif
 " --------------------------------------------------------------------
 let g:SuperTabDefaultCompletionType='<C-x><C-u>'
 
-" Simple Bookmark
-let g:simple_bookmarks_filename='./.vim_bookmarks'
-nmap <silent> <C-b><C-n> :execute ':CopenBookmarks'<CR>
-nmap <C-b><C-v> :Bookmark
+" vim-bookmarks
+" --------------------------------------------------------------------
+let g:bookmark_sign = '>>'
+let g:bookmark_auto_save=1
+let g:bookmark_save_per_working_dir=1
+let g:bookmark_center=1
+let g:bookmark_location_list=1
 
 " Plant-uml
 " --------------------------------------------------------------------
