@@ -4,21 +4,21 @@
 # --------------------------------------------
 
 # copy vim config
-if [ ! -f "$HOME/.config/nvim/init.vim" ] || [ "$1" == "-f" ] ; then
-    echo "copy my cfg file"
-    cp ./init.vim $HOME/.config/nvim/init.vim
-fi
+echo "--- copy my cfg file ---"
+cp ./init.vim $HOME/.config/nvim/init.vim
 
 #copy clang + cscope file generator
 mkdir -p $HOME/bin
-echo "copy clang + cscope generator"
+echo "--- copy clang + cscope generator ---"
 cp -R ./exec/* $HOME/bin
 
 # prepare vim plug - later all the plugin will be install using this
+echo "--- copy plug.vim ---"
 sudo curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # change ownership
+echo "--- copy plug.vim ---"
 sudo chown -R $(whoami):$(whoami) $HOME/.local/share/nvim
 sudo chown -R $(whoami):$(whoami) $HOME/bin
 
