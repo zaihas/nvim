@@ -11,6 +11,7 @@ fi
 
 #copy clang + cscope file generator
 mkdir -p $HOME/bin
+echo "copy clang + cscope generator"
 cp -R ./exec/* $HOME/bin
 
 # prepare vim plug - later all the plugin will be install using this
