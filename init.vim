@@ -68,6 +68,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'rip-rip/clang_complete'
 Plug 'ervandew/supertab'
 Plug 'aklt/plantuml-syntax'
+Plug 'scrooloose/vim-slumlord'
 " - utils
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -136,7 +137,9 @@ let g:bookmark_location_list=1
 
 " Plant-uml
 " --------------------------------------------------------------------
-let g:plantuml_executable_script='java -jar ~/.vimapps/plantuml/plantuml.jar'
+if has ("nvim")
+    let g:plantuml_executable_script='java -jar ~/.config/nvim/support/plantuml.jar'
+endif
 
 " Cscope
 " --------------------------------------------------------------------
