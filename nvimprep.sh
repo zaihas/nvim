@@ -18,7 +18,7 @@ sudo curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # change ownership
-echo "--- copy plug.vim ---"
+echo "--- change ownership ---"
 sudo chown -R $(whoami):$(whoami) $HOME/.local/share/nvim
 sudo chown -R $(whoami):$(whoami) $HOME/bin
 
