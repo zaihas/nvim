@@ -10,6 +10,7 @@ CURR_PATH=
 CURR_COMPILER_PATH=
 
 # find path to library
+echo "--- generate cscope file ---"
 find $CURR_COMPILER_PATH $PWD -name '*.c' -o -name '*.h' -o -name 'Make*' -o -name '*.mk' > $PWD/cscope.files
 
 # cscope it now
