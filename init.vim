@@ -138,7 +138,7 @@ let g:bookmark_location_list=1
 " Plant-uml
 " --------------------------------------------------------------------
 if has ("nvim")
-    let g:plantuml_executable_script='java -jar ~/.config/nvim/support/plantuml.jar'
+    let g:plantuml_executable_script='~/.config/nvim/support/plantuml.sh'
 endif
 
 " Cscope
