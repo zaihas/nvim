@@ -6,7 +6,6 @@
 # create directory
 mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/bin
-mkdir -p $HOME/bin/support
 
 # copy files config
 echo "--- copy cfg + generator + support files ---"
