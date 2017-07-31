@@ -5,6 +5,8 @@
 
 # create directory
 mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/nvim/exec
+mkdir -p $HOME/.config/nvim/support
 mkdir -p $HOME/bin
 
 # copy files config
