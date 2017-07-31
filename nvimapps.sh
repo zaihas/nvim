@@ -18,4 +18,7 @@ sudo pip2 install neovim
 # ruby
 sudo gem install neovim
 
+# clang/llvm - soft link to correct name
+sudo ln -s /usr/lib/llvm-3.8/lib/libclang.so.1 /usr/lib/llvm-3.8/lib/libclang.so
+
 
