@@ -17,7 +17,7 @@ runtime! debian.vim
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 if has("syntax")
-    syntax on
+    syntax enable
 endif
 
 " If using a dark background within the editing area and syntax highlighting
@@ -62,6 +62,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
+Plug 'colepeters/spacemacs-theme.vim'
 " - dirtree
 Plug 'scrooloose/nerdtree'
 " - programming
@@ -69,6 +70,8 @@ Plug 'rip-rip/clang_complete'
 Plug 'ervandew/supertab'
 Plug 'aklt/plantuml-syntax'
 Plug 'scrooloose/vim-slumlord'
+" - git
+Plug 'tpope/vim-fugitive'
 " - utils
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -79,12 +82,16 @@ call plug#end()
 
 " Colorscheme (onedark, solarized)
 " --------------------------------------------------------------------
+if (has("termguicolors"))
+  set termguicolors
+endif
 set background=dark
 "set background=light
-colorscheme onedark
+"colorscheme onedark
 "colorscheme solarized
 "colorscheme one
 "colorscheme molokai
+colorscheme spacemacs-theme
 
 " Airline
 " --------------------------------------------------------------------
