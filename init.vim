@@ -206,7 +206,7 @@ if has("cscope")
     nmap <C-u><C-u>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
     nmap <C-u><C-u>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
     nmap <C-u><C-u>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
-    nmap <C-u><C-u>a :cs find a <C-R>=expand("<cword>")<CR><CR>	
+    nmap <C-u><C-u>a :scs find a <C-R>=expand("<cword>")<CR><CR>	
 
     " CTRL-n *twice* -> vertical split instead of a horizontal one
     set splitright
@@ -218,7 +218,7 @@ if has("cscope")
     nmap <C-n><C-n>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>	
     nmap <C-n><C-n>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
     nmap <C-n><C-n>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-n><C-n>a :cs find a <C-R>=expand("<cword>")<CR><CR>	
+    nmap <C-n><C-n>a :vert scs find a <C-R>=expand("<cword>")<CR><CR>
 endif
 
 " vim-grepper
