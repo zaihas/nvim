@@ -164,6 +164,7 @@ if has("cscope")
     endif
     set csverb
 
+    " quickfix display
     if has ('quickfix')
         nmap <F6> :execute 'set cscopequickfix='<CR>
         nmap <F7> :execute 'set cscopequickfix=s-,c-,d-,i-,t-,e-'<CR>
@@ -180,6 +181,9 @@ if has("cscope")
     "   'f'   file:   open the filename under cursor
     "   'i'   includes: find files that include the filename under cursor
     "   'd'   called: find functions that function under cursor calls
+    "   'a'   called: find all place that set this variable
+
+    " CTRL-h *twice* -> switch current window to selected search result
     nmap <C-h><C-h>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
     nmap <C-h><C-h>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
     nmap <C-h><C-h>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
@@ -188,13 +192,12 @@ if has("cscope")
     nmap <C-h><C-h>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
     nmap <C-h><C-h>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap <C-h><C-h>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
+    nmap <C-h><C-h>a :cs find a <C-R>=expand("<cword>")<CR><CR>	
 
-    " Using CTRL-u *twice* (intepreted as CTRL-@ by vim) then a search type
-    " makes the vim window split horizontally, with search result displayed in
-    " the new window.
-    " (Note: earlier versions of vim may not have the :scs command, but it
-    " can be simulated roughly via:
-    "    nmap <C-@>s <C-W><C-S> :cs find s <C-R>=expand("<cword>")<CR><CR>	
+
+    " CTRL-u *twice* -> makes the vim window split horizontally,
+    " with search result displayed in the new window.
+    set splitbelow
     nmap <C-u><C-u>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
     nmap <C-u><C-u>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
     nmap <C-u><C-u>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
@@ -203,11 +206,10 @@ if has("cscope")
     nmap <C-u><C-u>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
     nmap <C-u><C-u>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
     nmap <C-u><C-u>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
+    nmap <C-u><C-u>a :cs find a <C-R>=expand("<cword>")<CR><CR>	
 
-    " Hitting CTRL-n *twice* before the search type does a vertical 
-    " split instead of a horizontal one (vim 6 and up only)
-    " (Note: you may wish to put a 'set splitright' in your .vimrc
-    " if you prefer the new window on the right instead of the left
+    " CTRL-n *twice* -> vertical split instead of a horizontal one
+    set splitright
     nmap <C-n><C-n>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
     nmap <C-n><C-n>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
     nmap <C-n><C-n>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
@@ -216,6 +218,7 @@ if has("cscope")
     nmap <C-n><C-n>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>	
     nmap <C-n><C-n>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
     nmap <C-n><C-n>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-n><C-n>a :cs find a <C-R>=expand("<cword>")<CR><CR>	
 endif
 
 " vim-grepper
