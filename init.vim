@@ -52,6 +52,7 @@ if filereadable("/etc/vim/vimrc.local")
     source /etc/vim/vimrc.local
 endif
 
+
 " Vim Plug (replace pathogen)
 " --------------------------------------------------------------------
 if has ("nvim")
@@ -80,7 +81,8 @@ Plug 'MattesGroeger/vim-bookmarks'
 
 call plug#end()
 
-" Colorscheme (onedark, solarized)
+
+" colorscheme (onedark, solarized)
 " --------------------------------------------------------------------
 if (has("termguicolors"))
   set termguicolors
@@ -93,9 +95,11 @@ set background=dark
 "colorscheme molokai
 colorscheme spacemacs-theme
 
+
 " Airline
 " --------------------------------------------------------------------
 let g:airline_theme='base16_monokai'
+
 
 " Gui specific - TODO: REMOVE!!!
 " --------------------------------------------------------------------
@@ -110,7 +114,8 @@ if has ("gui_running")
     set guioptions-=R
 endif
 
-" Vim-Clang - this is setting on CentOs 64 bit 
+
+" vim-clang
 " --------------------------------------------------------------------
 if executable ("llvm-ranlib")
     let g:clang_auto_select=1
@@ -119,20 +124,24 @@ if executable ("llvm-ranlib")
     let g:clang_snippets=1
     let g:clang_snippets_engine='clang_complete'
     let g:clang_auto_user_options='path, .clang_complete'
+    " centos
     if isdirectory ("/usr/lib64/llvm")
         let g:clang_library_path='/usr/lib64/llvm'
     endif
+    " ubuntu
     if isdirectory ("/usr/lib/llvm-3.8")
         let g:clang_library_path='/usr/lib/llvm-3.8/lib'
     endif
 else
-    " No LLVM - do not load Clang
+    " no clang? do not load
     let g:clang_complete_loaded=1
 endif
 
-" SuperTab
+
+" supertab
 " --------------------------------------------------------------------
 let g:SuperTabDefaultCompletionType='<C-x><C-u>'
+
 
 " vim-bookmarks
 " --------------------------------------------------------------------
@@ -142,15 +151,18 @@ let g:bookmark_save_per_working_dir=1
 let g:bookmark_center=1
 let g:bookmark_location_list=1
 
-" Plant-uml
+
+" plant-uml
 " --------------------------------------------------------------------
 if has ("nvim")
     let g:plantuml_executable_script='~/.config/nvim/support/plantuml.sh'
 endif
 
-" Cscope
+
+" cscope
 " --------------------------------------------------------------------
 if has("cscope")
+
     set csprg=/usr/bin/cscope
     set csto=0
     set cst
@@ -164,13 +176,20 @@ if has("cscope")
     endif
     set csverb
 
-    " quickfix display
+    " ==== cscope key mapping ====
+
     if has ('quickfix')
-        nmap <F6> :execute 'set cscopequickfix='<CR>
-        nmap <F7> :execute 'set cscopequickfix=s-,c-,d-,i-,t-,e-'<CR>
-        nmap <F8> :execute 'cp'<CR>
-        nmap <F9> :execute 'cn'<CR>
+        " toggle between quickfix mode
+        " nmap <F6> :call CSToggleQuickfix()<CR>
+        nmap <C-c><C-c>y :call CSToggleQuickfix()<CR>
+        " go previous result
+        nmap <F7> :cp<CR>
+        " go next result
+        nmap <F8> :cn<CR>
     endif
+
+    " reset cscope - update on runtime
+    nmap <C-c><C-c>u :cs kill -1<CR>:!genall.sh<CR>:cs add cscope.out<CR><CR>
 
     " The following maps all invoke one of the following cscope search types:
     "   's'   symbol: find all references to the token under cursor
@@ -219,20 +238,38 @@ if has("cscope")
     nmap <C-n><C-n>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
     nmap <C-n><C-n>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
     nmap <C-n><C-n>a :vert scs find a <C-R>=expand("<cword>")<CR><CR>
+
+    " --- function for key mapping ----
+
+    " toggle keyboard map for quick fix
+    if has ('quickfix')
+        let g:csquickfix_flag=0
+        function! CSToggleQuickfix()
+            if g:csquickfix_flag
+                set cscopequickfix=
+                let g:csquickfix_flag=0
+                echo "CSCOPE - switched to quickfix list mode"
+            else
+                set cscopequickfix=s-,c-,d-,i-,t-,e-
+                let g:csquickfix_flag=1
+                echo "CSCOPE - switched to quickfix cycle mode"
+            endif
+        endfunction
+    endif
 endif
+
 
 " vim-grepper
 " --------------------------------------------------------------------
 nmap <C-g><C-b> :Grepper -query <C-R>=expand("<cword>")<CR><CR>	
 
 
-" Zaihas custom
+" zaihas custom
 " --------------------------------------------------------------------
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set number
-"set ttyscroll=0
 
 nmap <silent> <F2> :execute 'NERDTreeToggle' . getcwd()<CR>
 nmap <silent> <F4> :execute 'wa!'<CR>
