@@ -99,6 +99,14 @@ colorscheme spacemacs-theme
 " Airline
 " --------------------------------------------------------------------
 let g:airline_theme='base16_monokai'
+let g:airline#extensions#default#section_truncate_width = {
+      \ 'b': 79,
+      \ 'x': 60,
+      \ 'y': 88,
+      \ 'z': 45,
+      \ 'warning': 80,
+      \ 'error': 80,
+      \ }
 
 
 " Gui specific - TODO: REMOVE!!!
@@ -180,8 +188,7 @@ if has("cscope")
 
     if has ('quickfix')
         " toggle between quickfix mode
-        " nmap <F6> :call CSToggleQuickfix()<CR>
-        nmap <C-c><C-c>y :call CSToggleQuickfix()<CR>
+        nmap <C-h><C-h>q :call CSToggleQuickfix()<CR>
         " go previous result
         nmap <F7> :cp<CR>
         " go next result
@@ -189,7 +196,7 @@ if has("cscope")
     endif
 
     " reset cscope - update on runtime
-    nmap <C-c><C-c>u :cs kill -1<CR>:!genall.sh<CR>:cs add cscope.out<CR><CR>
+    nmap <C-h><C-h>r :cs kill -1<CR>:!genall.sh<CR>:cs add cscope.out<CR><CR>
 
     " The following maps all invoke one of the following cscope search types:
     "   's'   symbol: find all references to the token under cursor
@@ -264,14 +271,34 @@ endif
 nmap <C-g><C-b> :Grepper -query <C-R>=expand("<cword>")<CR><CR>	
 
 
-" zaihas custom
+" nerdtree
+" --------------------------------------------------------------------
+nmap <silent> <F2> :execute 'NERDTreeToggle' . getcwd()<CR>
+
+
+" config
 " --------------------------------------------------------------------
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set number
 
-nmap <silent> <F2> :execute 'NERDTreeToggle' . getcwd()<CR>
+
+" utilities
+" --------------------------------------------------------------------
 nmap <silent> <F4> :execute 'wa!'<CR>
 nmap <silent> <F3> :execute 'q!'<CR>
+" copy to clipboard
 map <C-s><C-s> "*
+
+
+" folding
+" --------------------------------------------------------------------
+" folding c preprocessor, #if, #ifndef on that perticular line
+map <C-a><C-a>f 0 v % e zf
+" folding toggle
+map <C-a><C-a>u za
+
+
+
+
