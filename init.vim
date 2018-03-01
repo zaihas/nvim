@@ -295,7 +295,7 @@ map <C-s><C-s> "*
 " folding
 " --------------------------------------------------------------------
 " folding c preprocessor, #if, #ifndef on that perticular line
-map <C-a><C-a>f 0 v % e zf
+map <C-a><C-a>f ^ v % e zf
 " folding toggle
 map <C-a><C-a>u za
 
