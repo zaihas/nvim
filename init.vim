@@ -140,6 +140,10 @@ if executable ("llvm-ranlib")
     if isdirectory ("/usr/lib/llvm-3.8")
         let g:clang_library_path='/usr/lib/llvm-3.8/lib'
     endif
+     " ubuntu 18.04
+    if isdirectory ("/usr/lib/llvm-6.0")
+        let g:clang_library_path='/usr/lib/llvm-6.0/lib'
+    endif
 else
     " no clang? do not load
     let g:clang_complete_loaded=1

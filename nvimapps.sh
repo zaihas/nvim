@@ -20,5 +20,6 @@ sudo gem install neovim
 
 # clang/llvm - soft link to correct name
 sudo ln -s /usr/lib/llvm-3.8/lib/libclang.so.1 /usr/lib/llvm-3.8/lib/libclang.so
+sudo ln -s /usr/lib/llvm-6.0/lib/libclang.so.1 /usr/lib/llvm-6.0/lib/libclang.so
 
 
