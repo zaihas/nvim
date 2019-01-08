@@ -64,6 +64,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
 Plug 'colepeters/spacemacs-theme.vim'
+Plug 'morhetz/gruvbox'
 " - dirtree
 Plug 'scrooloose/nerdtree'
 " - programming
@@ -71,6 +72,7 @@ Plug 'rip-rip/clang_complete'
 Plug 'ervandew/supertab'
 Plug 'aklt/plantuml-syntax'
 Plug 'scrooloose/vim-slumlord'
+Plug 'hari-rangarajan/CCTree'
 " - git
 Plug 'tpope/vim-fugitive'
 " - utils
@@ -93,7 +95,8 @@ set background=dark
 "colorscheme solarized
 "colorscheme one
 "colorscheme molokai
-colorscheme spacemacs-theme
+"colorscheme spacemacs-theme
+colorscheme gruvbox
 
 
 " Airline
@@ -140,7 +143,7 @@ if executable ("llvm-ranlib")
     if isdirectory ("/usr/lib/llvm-3.8")
         let g:clang_library_path='/usr/lib/llvm-3.8/lib'
     endif
-     " ubuntu 18.04
+    " ubuntu 18.04
     if isdirectory ("/usr/lib/llvm-6.0")
         let g:clang_library_path='/usr/lib/llvm-6.0/lib'
     endif
